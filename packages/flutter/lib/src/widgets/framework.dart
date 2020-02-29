@@ -1956,11 +1956,8 @@ class _InactiveElements {
   }
 
   void remove(Element element) {
-    assert(!_locked);
-    assert(_elements.contains(element));
-    assert(element._parent == null);
-    _elements.remove(element);
-    assert(!element._active);
+    if (_elements.contains(element))
+      _elements.remove(element);
   }
 
   bool debugContains(Element element) {
